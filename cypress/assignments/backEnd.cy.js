@@ -108,7 +108,7 @@ describe('Back End Test', () => {
             // should return 200
             expect(shoppingCartResp.status).to.eq(200)          
             // get totalBeforePromoCode
-         const totalBeforePromoCode = shoppingCartResp.body['subTotal']  
+            const totalBeforePromoCode = shoppingCartResp.body['subTotal']  
          // request to apply promocode with 100% discount
             cy.request({                                            
                 method: 'POST',

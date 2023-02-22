@@ -35,15 +35,15 @@ describe('Given as a buyer I want to get discount when I am qualify for: ', () =
 
     it('A. When my items in my shopping cart is qualify for discount.', () => {
          // assume we have totalAmount elem
-        cy.get('#totalAmount').invoke('text').then((originalTotal) => {  ent
+        cy.get('#totalAmount').invoke('text').then((originalTotal) => {  
         
         // assume we have itemCount element
         cy.get('#itemCount').invoke('text').then((itemCount) => {   
        
          // assume we have singleItemPrice element
         cy.get('#singleItemPrice').invoke('text').then((pricePerItem) => {   
-                    // IF less than 5 items, DISCOUNT NOT APPLIED
-                    if (itemCount < 5) {                                            
+            // IF less than 5 items, DISCOUNT NOT APPLIED
+             if (itemCount < 5) {                                            
                         expect(originalTotal).to.equal(pricePerItem * itemCount)      
                         console.log('ITEM NUMBER DISCOUNT NOT APPLIED')  
 
@@ -55,8 +55,8 @@ describe('Given as a buyer I want to get discount when I am qualify for: ', () =
                             console.log('PROMOCODE DISCOUNT APPLIED')
                         })
                      }    
-                     // IF equal or more than 5 items, DISCOUNT APPPLIED    
-                    else if (itemCount >= 5) {    
+            // IF equal or more than 5 items, DISCOUNT APPPLIED    
+             else if (itemCount >= 5) {    
                         // discount 1 item for every 5 items                                   
                         let discountedDeduction = Math.floor(itemCount / 5) * pricePerItem             
                         let newTotalAmount = (itemCount * pricePerItem) - discountedDeduction;
