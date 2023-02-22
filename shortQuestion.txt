@@ -1,0 +1,54 @@
+1. In your opinion, under what conditions does a feature become eligible for automation?
+A: usually features that have repetitive test cases, the features that needs to run everytime when we have regression, and the features 
+with multiple sets of data will become eligible for automation. some other conditions be if a feature is really time consuming to test, and
+some test cases when they requires sending/receiving request/response from multiple APIs.
+
+2. When testing this feature, how would you go about debugging a scenario in which nothing happens when clicking
+the 'Place Order' button on checkout?
+a. How would you handle communicating this issue to the development team and Product Owner?
+ A:my approach will be inspect the network through developing tool and see what is the response when i click "Place Order" . 
+ if there have any error return(403/500 ect), i will take a screenshot and refresh the page and see if the error is presisting. 
+ based on the information and evidence is gathered, i would usually directly slack the PM/ product Owner in the channel with 
+ developers and inform them my finding. lastly i will create a bug when it is confirmed it is a bug.
+
+3. If you were going to be on vacation the day this feature was deployed to staging and needed to be smoke tested,
+quickly write/explain the manual steps needed to verify this feature is working as intended and ready for release
+to production. Pretend as if this would be handed off to the Product Owner to verify the feature.
+A:
+Feature: testing the user setting page.
+Given the user on login page of the application, enter username and password. and click login
+Then the user should able land on the homepage.
+When the user is in the homepage, navigates to the setting page by clicking the "user setting" on the top right of the page.
+Then user should see user setting page.
+Given the user is on user setting page. update all the information one of by and click save.
+Then user should able to see the updated information. 
+
+4. What other areas would you want to smoke/regression test alongside this feature before it is released?
+A: my approach is to retest all the newly release features before the final prod deployment. sometime i will also add some major
+functionalities to my test run. for example for a web application with checkout features,i will check the checkout before every deployment.
+
+5. Identify risks associated with this feature.
+ my usual approach is first communicate with developer while learning this feature. and based on the scenarios:
+ 1. if the features does not have functionality that will impact other features, it has lower risk.
+ 2. if the features will appear on multiple pages and would change the workflow dramatically, it has higher risk.
+ 3. if the features is refactoring of some of the old code, it has higher risk.
+based on my experience, majority of the feature would have some level of impact to the application. so i usually in high alert 
+ whenever we have new feature release.
+
+6. Imagine that certain bugs were discovered late in the testing/integration process and the feature was supposed to
+deploy tomorrow. How would you communicate the issues to the product owner? Would these issues block or
+delay the release? Why or why not?
+
+A: 
+if the bugs are Showstoppers that will cause application to crash , the team should delay the release until we have the fixes.
+
+if the bugs related the new features we are rolling out in this deployment, i will provide the product owner with the feedback 
+on  it is a blocker or not (based on serverity) for the new features. and product owner and the team should decide based on the feedback i 
+provided. should we working on a fix asap? should we just release it what it is? or should we release it because it does not impact much 
+of the user experience. 
+
+if the bugs are not related to the new features we are rolling out, that mean it maybe an existing issues and i will inform the product
+ owner on this, and the PO/team will value the bugs on it is complexity, and decide if we are providing a fix before or after this release.
+
+lastly i do not think QA should decide if the team should delay the release or not, it should be a decision of the team after QA 
+provided the feedback.
